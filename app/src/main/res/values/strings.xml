@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name" translatable="false">SoccerSkills</string>
+    <string name="text_RememberMe">Remember me</string>
+    <string name="text_ForgotPassword">Forgot password?</string>
+    <string name="text_SignIn">SignIn</string>
+    <string name="text_DontHaveAnAcc">Dont have an account?</string>
+    <string name="text_SignUp">SignUp now</string>
+    <string name="text_YourLogin">Your login:</string>
+    <string name="text_YourPasssword">Your password:</string>
+</resources>
