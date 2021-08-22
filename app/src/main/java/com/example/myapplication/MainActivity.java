@@ -2,7 +2,9 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,10 +24,22 @@ public class MainActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
 
+    private static final String MY_SETTINGS = "my_settings";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sp = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
+        boolean hasVisited = sp.getBoolean("hasVisited", false);
+        if(!hasVisited){
+            startActivity(new Intent(this, MainActivity4.class));
+
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("hasVisited", true);
+            editor.apply();
+        }
 
         email = (EditText) findViewById(R.id.emailLog);
         password = (EditText) findViewById(R.id.passLog);
