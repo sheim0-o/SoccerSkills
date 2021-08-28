@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -16,11 +18,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    private EditText name;
-    private EditText lastName;
-    private EditText email;
-    private EditText password1;
-    private EditText password2;
+    private TextInputEditText name;
+    private TextInputEditText lastName;
+    private TextInputEditText email;
+    private TextInputEditText password1;
+    private TextInputEditText password2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,11 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        name = (EditText) findViewById(R.id.nameReg);
-        lastName = (EditText) findViewById(R.id.lastNameReg);
-        email = (EditText) findViewById(R.id.emailReg);
-        password1 = (EditText) findViewById(R.id.passReg1);
-        password2 = (EditText) findViewById(R.id.passReg2);
+        name = findViewById(R.id.nameRegET);
+        lastName = findViewById(R.id.lastNameRegET);
+        email = findViewById(R.id.emailRegET);
+        password1 = findViewById(R.id.passReg1ET);
+        password2 = findViewById(R.id.passReg2ET);
     }
 
     public void register(View v){

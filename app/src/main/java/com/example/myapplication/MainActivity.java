@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -21,8 +23,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText email;
-    private EditText password;
+    private TextInputEditText email;
+    private TextInputEditText password;
 
     private static final String MY_SETTINGS = "my_settings";
 
@@ -40,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
             editor.putBoolean("hasVisited", true);
             editor.apply();
         }
-
-        email = (EditText) findViewById(R.id.emailLog);
-        password = (EditText) findViewById(R.id.passLog);
+        email = findViewById(R.id.emailLogET);
+        password = findViewById(R.id.passLogET);
     }
 
     public void onClick(View v) {
@@ -52,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
                 break;
             case R.id.btnSignin:
-
                 Intent intent2 = new Intent(this, MainActivity3.class);
 
                 Retrofit retrofit = new Retrofit.Builder()
