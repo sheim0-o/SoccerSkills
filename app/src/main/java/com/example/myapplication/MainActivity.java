@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnSignin:
                 Intent intent2 = new Intent(this, MainActivity3.class);
 
+                MaterialAlertDialogBuilder alertDialog1 = new MaterialAlertDialogBuilder(this)
+                        .setTitle("Ошибка!");
+
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl("http://fspobot.tw1.ru:8080/")
                         .addConverterFactory(GsonConverterFactory.create())
@@ -74,13 +78,13 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else if (response.code() == 401)
                         {
-                            Toast.makeText(getApplicationContext(), "Данные введены неверно!",
-                                    Toast.LENGTH_SHORT).show();
+                            alertDialog1.setMessage("Неверно введены данные!").show();
                         }
                         else
                         {
                             Toast.makeText(getApplicationContext(), "Ошибка " + response.code(),
                                     Toast.LENGTH_SHORT).show();
+                            alertDialog1.setMessage("Ошибка №" + response.code()).show();
                         }
                     }
 
